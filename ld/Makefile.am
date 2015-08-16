@@ -420,6 +420,8 @@ ALL_64_EMULATION_SOURCES = \
 	eaarch64elf32.c \
 	eaarch64elfb.c \
 	eaarch64elf32b.c \
+	eaarch64dfly.c \
+	eaarch64dflyb.c \
 	eaarch64linux.c \
 	eaarch64linuxb.c \
 	eaarch64linux32.c \
@@ -1543,6 +1545,14 @@ enios2linux.c: $(srcdir)/emulparams/nios2linux.sh \
 ens32knbsd.c:	$(srcdir)/emulparams/ns32knbsd.sh \
   $(srcdir)/emultempl/generic.em $(srcdir)/emultempl/netbsd.em \
   $(srcdir)/scripttempl/aout.sc ${GEN_DEPENDS}
+
+eaarch64dfly.c: $(srcdir)/emulparams/aarch64dfly.sh \
+  $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
+  $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
+eaarch64dflyb.c: $(srcdir)/emulparams/aarch64dflyb.sh $(srcdir)/emulparams/aarch64dfly.sh \
+  $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
+  $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 eaarch64elf.c: $(srcdir)/emulparams/aarch64elf.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \

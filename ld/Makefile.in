@@ -727,6 +727,8 @@ ALL_64_EMULATION_SOURCES = \
 	eaarch64elf32.c \
 	eaarch64elfb.c \
 	eaarch64elf32b.c \
+	eaarch64dfly.c \
+	eaarch64dflyb.c \
 	eaarch64linux.c \
 	eaarch64linuxb.c \
 	eaarch64linux32.c \
@@ -1050,6 +1052,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eaarch64linux32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eaarch64linux32b.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eaarch64linuxb.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eaarch64dfly.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eaarch64dflyb.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eaix5ppc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eaix5rs6.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eaixppc.Po@am__quote@
@@ -2998,6 +3002,14 @@ eaarch64elfb.c: $(srcdir)/emulparams/aarch64elfb.sh $(srcdir)/emulparams/aarch64
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 eaarch64elf32b.c: $(srcdir)/emulparams/aarch64elf32b.sh $(srcdir)/emulparams/aarch64elf32.sh \
+  $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
+  $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
+eaarch64dfly.c: $(srcdir)/emulparams/aarch64dfly.sh \
+  $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
+  $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
+eaarch64dflyb.c: $(srcdir)/emulparams/aarch64dflyb.sh $(srcdir)/emulparams/aarch64dfly.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
